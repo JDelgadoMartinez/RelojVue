@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "DigitalClock",
+  name: "ClockView",
   data() {
     return {
       //Inicializamos las variables a 0
@@ -15,17 +15,9 @@ export default {
   methods: {
     setTime() {
       const date = new Date();
-      let hours = date.getHours();
-      let minutes = date.getMinutes();
-      let seconds = date.getSeconds();
-      if (minutes >= 60) {
-        minutes = 0;
-        hours = hours + 1;
-      }
-      if (seconds >= 60) {
-        seconds = 0;
-        minutes = minutes + 1;
-      }
+      let hours = (date.getHours());
+      let minutes = (date.getMinutes());
+      let seconds = (date.getSeconds());
       this.hours = hours;
       this.minutes = minutes;
       this.seconds = seconds;
@@ -35,26 +27,21 @@ export default {
 </script>
 
 <template>
-  <h1>Digital Clock</h1>
+  <h1>Reloj Vue</h1>
   <div class="container">
     <div class="clock">
-      <div class="hours">{{ hours }}</div>
-      <div class="divider">:</div>
-      <div class="minutes">{{ minutes }}</div>
-      <div class="divider">:</div>
+      <div class="hours">{{ hours }} :</div>
+      <div class="minutes">{{ minutes }} :</div>
       <div class="seconds">{{ seconds }}</div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
 .clock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: "alarm clock";
   font-size: x-large
 }
